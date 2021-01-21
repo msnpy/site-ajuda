@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<!--body {background-color:#000408;}-->
+<!--lembra de usa essa senao quise o gif-->
+
+
+<style>
+
+
+body {background-image: url('hacker.gif');}
+
+h1 {background-color:#08f731;}
+
+p {background-color:#42d308; color:#390842;}
+
+h3 {background-color:#08f731;}
+
+h6 {background-color:#08f731;}
+
+ul {background-color:#08f731;}
+
+a {background-color:#08f731;}
+
+
+</style>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"content="width=device-width,initial-scale=1">
+<meta name="description" content="ajuda para termux" />
+<meta name="keywords" content="termux,android,jogos hacker"/>
+
+<title>termux ajuda</title>
+
+</head>
+
+<body>
+
+<center>
+<h1>termux ajuda</h1>
+</center>
+
+<!--image -->
+<center>
+<img src="termux.png" width="400">
+</center>
+
+
+
+<p>Termux é um emulador de terminal Android e aplicativo de ambiente Linux que funciona diretamente sem enraizamento ou configuração necessária. Um sistema básico mínimo é instalado automaticamente, pacotes adicionais estão disponíveis usando o gerenciador de pacotes</p>
+
+
+<h1>Como funciona?</h1>
+<p>
+O emulador de terminal é basicamente um aplicativo que inicia o programa de linha de comando usando execve de chamada de sistema e redirecionando fluxos de entrada, saída e erros padrão para a tela.
+</p>
+
+<p>A maioria dos aplicativos de terminal disponíveis no sistema operacional Android funcionam com um conjunto muito limitado de utilitários que geralmente são fornecidos pelo sistema operacional ou por outras ferramentas de root, como Magisk. Decidimos ir mais longe e portar software comum geralmente disponível em sistemas GNU / Linux para o sistema operacional Android.</p>
+
+<p>
+O Termux não é uma máquina virtual nem qualquer outro tipo de ambiente emulado ou simulado. Todos os pacotes fornecidos são compilados com o Android NDK e só têm patches de compatibilidade para funcionar no Android. O sistema operacional não fornece acesso total aos seus sistemas de arquivos, portanto o Termux não pode instalar arquivos de pacote em diretórios padrão como / bin, / etc, / usr ou / var. Em vez disso, todos os arquivos são instalados no diretório do aplicativo privado localizado em</p>
+
+<h3>/data/data/com.termux/files/usr</h3>
+
+<p>Chamamos esse diretório de "prefixo" e normalmente nos referimos a ele como "$ PREFIX", que também é uma variável de ambiente exportada no shell do Termux. Observe que este diretório não pode ser alterado ou movido para um cartão SD porque:</p>
+
+
+<ul>
+
+<li>O sistema de arquivos deve ter suporte para permissões unix e arquivos especiais como links simbólicos ou sockets.</li>
+
+<li>O caminho do prefixo é codificado em todos os binários.</li>
+</ul>
+
+<p>
+Além do prefixo, os usuários podem armazenar arquivos no diretório inicial (ou "$ HOME") disponível em</p>
+
+<h3>/data/data/com.termux/files/home</h3>
+
+<h1>O que posso fazer com o Termux?</h1>
+
+<p>Existem vários casos de uso comuns para o aplicativo Termux:</p>
+
+<ul>
+<li>Processamento de dados com Python.</li><br>
+<li>Programação em ambiente de desenvolvimento.</li><br>
+<li>Baixar e gerenciar arquivos e páginas usando ferramentas estabelecidas pelo tempo.</li><br>
+<li>Aprendendo o básico do ambiente de linha de comando do Linux.</li><br>
+<li>Executando um cliente SSH.</li><br>
+<li>Sincronizando e fazendo backup de seus arquivos</li><br>
+</ul>
+
+<p>Obviamente, o uso não se limita aos tópicos listados acima. Existem mais de 1000 pacotes em nossos repositórios. Se esses pacotes não tiverem o que você procura, você pode compilar o seu próprio - temos uma variedade de ferramentas de construção, incluindo compiladores para linguagens como C, C++, Go, Rust. Intérpretes para linguagens comuns como NodeJS, Python, Ruby também estão disponíveis.</p>
+
+<p>Observe que o Termux não é uma ferramenta de root e não lhe dará privilégios de root, a menos que você seja qualificado o suficiente para quebrar a segurança do sistema operacional Android.</p>
+
+<p>É necessário root?</p>
+
+<p>Normalmente o Termux não requer que o dispositivo seja enraizado. Na verdade, ele é direcionado principalmente para usuários não root.</p>
+
+<h1>Dicas</h1>
+
+<p>Aqui estão algumas dicas básicas sobre como usar o Termux e sobreviver:</p>
+
+<ul>
+<li>Aprenda shell scripting!</li><br>
+<li>Sempre mantenha seus pacotes atualizados! Execute o comando <b>pkg upgrade</b> regularmente ou pelo menos antes de instalar um novo pacote.</li><br>
+<li>Faça backups, sempre! Sem backups, você provavelmente não conseguirá reverter se algo der errado. Observe que os desenvolvedores de software devem prestar atenção em fazer backup de debfiles de compiladores, interpretadores ou dependências usados   porque o Termux não fornece versões de pacote mais antigas e é um lançamento contínuo.</li><br>
+<li>Não execute coisas que você não conhece! Revise os scripts baixados da Internet. Sempre pense no que você está digitando no terminal.</li><br>
+<li>Leia atentamente tudo o que foi impresso no terminal! Compreender as mensagens informativas ajuda a resolver problemas que podem ocorrer.</li>
+</ul>
+
+<p>Não somos capazes de manter toda a documentação sobre comandos do Linux, scripts de shell e outras informações de uso geral, portanto, links para recursos externos são fornecidos.</p>
+
+<p>Sugere fortemente evitar os tutoriais do YouTube, especialmente relacionados a hackers. Existem muitos clickbait direcionados a usuários não experientes. Se você decidir segui-los, certifique-se de compreender os comandos executados. Além disso, sempre verifique o conteúdo dos arquivos baixados. Se o conteúdo dos scripts baixados for <b>ofuscado</b>, deve haver alarme sobre conteúdo potencialmente inseguro.</p>
+
+<h1>Comandos</h1>
+<p>Descubra os comandos que podem ser executados no terminal Linux.</p>
+
+
+<p>Vamos começar com um comando simples, <b>echo</b>. O comando <b>echo</b> apenas imprime os argumentos de texto no display <b>digite no termux</b>.</p>
+
+<p><b>echo</b> Hello World</p>
+
+<h1>Exercícios</h1>
+
+<p>Experimente alguns outros comandos do Linux e veja o que eles geram:<br>
+<b>data</b><br>
+<b>whoami</b><br>
+</p>
+
+<h1>pwd (Imprimir diretório de trabalho)</h1>
+
+<p>Tudo no Linux é um arquivo, conforme você se aprofunda no Linux, você entenderá isso, mas por enquanto apenas mantenha isso em mente. Cada arquivo é organizado em uma árvore de diretório hierárquica. O primeiro diretório no sistema de arquivos é apropriadamente chamado de diretório raiz. O diretório raiz tem muitas pastas e arquivos que você pode armazenar mais pastas e arquivos, etc. Aqui está um exemplo de como a árvore de diretórios se parece:</p>
+
+<center>
+<img src="pwd.png" width="300">
+</center>
+
+<p>A localização desses arquivos e diretórios é conhecida como caminhos. Se você tivesse uma pasta chamada home com uma pasta dentro dela chamada pete e outra pasta nessa pasta chamada Movies, esse caminho seria assim: <b>/home/pete/Movies</b>, muito simples não?
+
+<p>digite no termux</p>
+
+<h3>pwd</h3>
+
+<h1>cd (Alterar diretório)</h1>l
+
+<p>Agora que você sabe onde está, vamos ver se podemos mover um pouco o sistema de arquivos. Lembre-se de que precisamos navegar nosso caminho usando caminhos. Existem duas maneiras diferentes de especificar um caminho, com caminhos absolutos e relativos.</p>
+
+<ul>
+<li>Caminho absoluto: este é o caminho do diretório raiz. A raiz é o chefão. O diretório raiz normalmente é mostrado como uma barra. Cada vez que seu caminho começa com /, significa que você está começando no diretório raiz. Por exemplo, <b>/home/pete/Desktop</b>.</li><br>
+
+<li>Caminho relativo: Este é o caminho de onde você está atualmente no sistema de arquivos. Se eu estivesse no local <b>/home/pete/Documents</b> e quisesse acessar um diretório dentro de Documents chamado de impostos, não preciso especificar o caminho completo da raiz como <b>/home/pete/Documentos/impostos</b>, posso apenas ir para <b>/impostos</b> em vez disso.</li>
+
+</ul>
+
+<p>Agora que você sabe como funcionam os caminhos, só precisamos de algo que nos ajude a mudar para o diretório que desejamos. Felizmente, temos cd ou “mudar de diretório” para fazer isso.</p>
+
+<h3>cd /home/pete/Imagens</h3>
+
+<p>Agora mudei a localização do meu diretório para <b>/home/pete/Pictures</b>.<br>
+
+Agora, a partir deste diretório, tenho uma pasta chamada Hawaii, posso navegar até essa pasta com:</p>
+
+<h3>cd Hawaii</h3>
+
+
+<p>Percebeu como acabei de usar o nome da pasta? É porque eu já estava em <b>/home/pete/Pictures</b>.<br>
+
+Pode ser muito cansativo navegar com caminhos absolutos e relativos o tempo todo, felizmente existem alguns atalhos para ajudá-lo.
+</p>
+
+<ul>
+<li>(diretório atual). Este é o diretório em que você está.</li><br>
+
+<li>(Diretório Parental). Leva você ao diretório acima do atual.</li><br>
+
+<li>(diretório inicial). Este diretório é padronizado como seu “diretório inicial”. Como <b>/home/pete</b>.</li><br>
+
+<li> (diretório anterior). Isso o levará para o diretório anterior em que estava.</li>
+
+</ul>
+
+<h3>
+cd .<br>
+cd ..<br>
+cd ~<br>
+cd -<br>
+</h3>
+
+<h1> ls (lista de diretórios)</h1>
+
+<p>Agora que sabemos como se mover no sistema, como descobrimos o que está disponível para nós? No momento, é como se estivéssemos nos movendo no escuro. Bem, podemos usar o maravilhoso comando ls para listar o conteúdo do diretório. O comando ls listará diretórios e arquivos no diretório atual por padrão, no entanto, você pode especificar de qual caminho deseja listar os diretórios.</p>
+
+<h3>ls<br>
+ls <b>/home/pete</b><br>
+</h3>
+
+<p>ls é uma ferramenta bastante útil, mas também mostra informações detalhadas sobre os arquivos e diretórios que você está procurando.<br>
+
+Observe também que nem todos os arquivos em um diretório estarão visíveis. Nomes de arquivos que começam com <b>.</b> estão ocultos, você pode visualizá-los com o comando <b>ls</b> e passar o sinalizador <b>-a</b> para ele.</p>
+
+<h3>ls -a</h3>
+
+<p>Há também um sinalizador <b>ls</b> mais útil, <b>-l</b> que mostra uma lista detalhada de arquivos em um formato longo. Isso mostrará informações detalhadas, começando da esquerda: permissões do arquivo, número de links, nome do proprietário, grupo de proprietários, tamanho do arquivo, data e hora da última modificação e nome do arquivo /diretório.</p>
+<h3>ls -l</h3>
+
+<h6>total 80<br>
+drwxr-x --- 7 pete penguingroup 4096 20 de novembro 16:37 Desktop<br>
+ 
+drwxr-x --- 2 pete penguingroup 4096 19 de outubro 10:46 Documentos<br>
+ 
+drwxr-x --- 4 pete penguingroup 4096 20 de novembro 09:30 Downloads<br>
+ 
+drwxr-x --- 2 pete penguingroup 4096 7 de outubro 13:13 Música<br>
+ 
+drwxr-x --- 2 pete penguingroup 4096 21 de setembro 14:02 Imagens<br>
+ 
+drwxr-x --- 2 pete penguingroup 4096 Jul 27 12:41 Público<br>
+ 
+drwxr-x --- 2 pete penguingroup 4096 Jul 27 12:41 Modelos<br>
+ 
+drwxr-x --- 2 pete penguingroup 4096 Jul 27 12:41 Vídeos<br></h6>
+
+<p>Os comandos têm coisas chamadas sinalizadores (ou argumentos ou opções, como você quiser chamá-los) para adicionar mais funcionalidade. Veja como adicionamos <b>-a</b> e <b>-l</b>, bem, você pode adicioná-los junto com <b>-la</b>. A ordem dos sinalizadores determina em qual ordem eles entram, na maioria das vezes isso realmente não importa, então você também pode fazer <b>ls -al</b> e ainda funcionaria.</p>
+
+<h3>ls -la</h3>
+
+
+<ul>
+<li>ls -R: lista recursivamente o conteúdo do diretório</li><br>
+
+<li>ls -r: ordem inversa durante a classificação</li><br>
+
+<li>ls -t: classificar por hora de modificação, mais recente primeiro</li><br>
+
+</ul>
+
+<h1>touch</h1>
+<p>
+Vamos aprender como fazer alguns arquivos. Uma maneira muito simples é usar o comando de toque. <b>touch</b><br>permite que você crie novos arquivos vazios.</p>
+
+<h3>touch senhas.txt</h3>
+
+
+<p>O toque também é usado para alterar os carimbos de data  hora em arquivos e diretórios existentes. Experimente, faça um <b>ls -l</b> em um arquivo e anote o carimbo de data hora, faça digite <b>touch</b> nesse arquivo e ele atualizará a data hora da modificação.
+<br>
+
+Existem muitas outras maneiras de criar arquivos que envolvem outras coisas, como redirecionamento e editores de texto, mas vamos chegar a isso no curso Manipulação de Texto.
+</p>
+
+<h1> cat </h1>
+
+<p>Um comando simples de usar é o comando cat, abreviação de concatenar, ele não apenas exibe o conteúdo do arquivo, mas pode combinar vários arquivos e mostrar a saída deles.</p>
+
+<h3>cat script1.sh script2.py</h3>
+
+<p>Não é ótimo para visualizar arquivos grandes e serve apenas para conteúdo curto. Existem muitas outras ferramentas que usamos para visualizar arquivos de texto maiores que discutiremos na próxima lição.</p>
+
+
+<h1>less</h1>
+
+<p>Se você estiver visualizando arquivos de texto maiores do que uma saída simples, <b>less</b> e o comando ideal. (Na verdade, existe um comando chamado <b>more</b> que faz algo semelhante, então isso é irônico.) O texto é exibido de forma paginada, para que você possa navegar por um arquivo de texto página por página.
+
+Vá em frente e observe o conteúdo de um arquivo com <b>less</b>. Assim que estiver no comando <b>less</b>, você pode usar outros comandos de teclado para navegar no arquivo.</p>
+
+<h3> less /home/pete/Documents/text1</h3>
+
+<p>Use o seguinte comando para navegar por <b>less</b>:</p>
+
+<ul>
+<li>q sair do less e voltar ao seu shell.</li>
+
+<li>g  vai para o início do arquivo de texto.</li>
+
+<li>G  vai para o final do arquivo de texto.</li>
+
+<li>/ search  Você pode pesquisar um texto específico dentro do documento de texto.</li>
+
+<li>h  Se precisar de ajuda para usar <b>less</b> enquanto usa <b>less</b>, use a ajuda.</li>
+</ul>
+
+<h1>history</h1>
+
+<p>Em seu shell, há um histórico dos comandos que você inseriu anteriormente, você pode realmente ver esses comandos. Isso é bastante útil quando você deseja localizar e executar um comando usado anteriormente sem realmente digitá-lo novamente.</p>
+
+<h3>history</h3>
+
+<p>Deseja executar o mesmo comando que você fez antes, basta clicar na seta para cima.
+
+Quer executar o comando anterior sem digitá-lo novamente? Usar !!. Se você digitou cat arquivo1 e deseja executá-lo novamente, você pode simplesmente ir !! e ele executará o último comando executado.
+
+Outro atalho de histórico é o ctrl-R, este é o comando de pesquisa reversa, se você clicar em ctrl-R e começar a digitar as partes do comando que deseja, ele mostrará as correspondências e você poderá navegar por elas pressionando a tecla ctrl-R novamente. Depois de encontrar o comando que deseja usar novamente, basta pressionar a tecla Enter.
+
+Nosso terminal está ficando um pouco confuso, não? Vamos fazer uma pequena limpeza, use o comando <b>clear</b> para limpar sua tela.</p>
+
+<h1>clear</h1>
+
+<p>Isso parece melhor, não é?
+
+Enquanto estamos falando sobre coisas úteis, um dos recursos mais úteis em qualquer ambiente de linha de comando é o preenchimento de tabulação. Se você começar a digitar o início de um comando, arquivo, diretório, etc e pressionar a tecla Tab, ele será preenchido automaticamente com base no que encontrar no diretório que você está pesquisando, desde que você não tenha nenhum outro arquivo que comece com aqueles cartas. Por exemplo, se você estava tentando executar o comando chrome, você pode digitar chr e pressionar Tab e ele irá preencher automaticamente o chrome.</p>
+
+<h1>cp (cópia)</h1>
+
+<p>Vamos começar a fazer algumas cópias desses arquivos. Muito parecido com copiar e colar arquivos em outros sistemas operacionais, o shell nos oferece uma maneira ainda mais simples de fazer isso.</p>
+
+<h3>cp /sdcard/Music/mc_mark.m4a</h3>
+
+<p><b>mc_mark.m4a</b> é o arquivo que você deseja copiar e <b>/data/data/com.termux/files/home</b> é para onde você está copiando o arquivo.
+
+Você pode copiar vários arquivos e diretórios, bem como usar curingas. Um curinga é um caractere que pode ser substituído por uma seleção baseada em padrão, dando a você mais flexibilidade nas pesquisas. Você pode usar curingas em cada comando para obter mais flexibilidade.</p>
+
+
+<ul>
+<li><b>*</b> o curinga de curingas, é usado para representar todos os caracteres únicos ou qualquer string.</li><br>
+
+<li><b>?</b> usado para representar um personagem</li></br>
+
+<li><b>[]</b> usado para representar qualquer caractere entre colchetes</li>
+</ul>
+
+<h3>cp * .jpg /sdcard/fotos</h3>
+
+<p>
+Isso copiará todos os arquivos com a extensão .jpg em seu diretório atual para o diretório fotos.
+
+Um comando útil é usar o sinalizador 
+<b>-r</b>, isso copiará recursivamente os arquivos e diretórios dentro de um diretório.<br>
+
+Tente fazer um cp em um diretório que contém alguns arquivos para o diretório de documentos. Não funcionou, não é? Bem, isso é porque você precisará copiar os arquivos e diretórios internos também com o comando <b>-r</b>.
+
+</p>
+
+<h3>cp -r Abóbora / / home / pete / Documentos</h3>
+
+<p>Uma coisa a ser observada: se você copiar um arquivo para um diretório com o mesmo nome de arquivo, o arquivo será sobrescrito com o que você estiver copiando. Isso não é bom se você tiver um arquivo que não deseja que seja sobrescrito acidentalmente. Você pode usar o sinalizador -i (interativo) para avisar antes de sobrescrever um arquivo.</p>
+
+<h3>Imagens $ <b>cp -i</b> mycoolfile 
+/home/pete/</h3>
+
+
+<h1>mv (mover)</h1>
+
+<p>Usado para mover arquivos e também renomeá-los. Muito semelhante ao comando cp em termos de sinalizadores e funcionalidade.
+
+Você pode renomear arquivos assim:</p>
+
+<h3>mv musica.mp3 mc_mark.mp3
+
+<p>Ou você pode realmente mover um arquivo para um diretório diferente:</p>
+
+<h3> mv virus.apk /sdcard</h3>
+
+<p>E mova mais de um arquivo:</p>
+
+<h3>mv arquivo_1 arquivo_2 /algum_diretório</h3>
+
+<p>Como o cp, se você mv um arquivo ou diretório, ele sobrescreverá qualquer coisa no mesmo diretório. Portanto, você pode usar o sinalizador <b>-i</b> para avisar antes de sobrescrever qualquer coisa.</p>
+
+<h3>mv -i diretório1 diretório2</h3>
+
+<p>Digamos que você queira mover um arquivo para sobrescrever o anterior. Você também pode fazer um backup desse arquivo e ele apenas renomeará a versão antiga com um ~.</p>
+
+<h3>mv -b diretório1 diretório2</h3>
+
+<h1>mkdir (Criar diretório)</h1>
+
+<p>Precisaremos de alguns diretórios para armazenar todos esses arquivos em que estamos trabalhando. O comando mkdir (Make Directory) é útil para isso, ele criará um diretório se ainda não existir. Você pode até criar vários diretórios ao mesmo tempo.</p>
+
+<h3>mkdir musicas videos</h3>
+
+<p>Você também pode criar subdiretórios ao mesmo tempo com o -p (sinalizador pai).</p>
+
+<h3>mkdir -p books/html/favoritos</h3>
+
+
+<h1>rm (Remover)</h1>
+
+<p>Agora acho que temos muitos arquivos, vamos remover alguns arquivos. Para remover arquivos, você pode usar o comando rm. O comando <b>rm</b> (remover) é usado para excluir arquivos e diretórios.</p>
+
+
+<h3>rm arquivo1</h3>
+
+<p>Tome cuidado ao usar o rm, não há nenhuma lixeira mágica que você possa pescar nos arquivos removidos. Uma vez que eles se foram, eles se foram para sempre, então tome cuidado.<br>
+
+Felizmente, existem algumas medidas de segurança postas em prática, então o voce não pode simplesmente remover um monte de arquivos importantes. Arquivos protegidos contra gravação solicitarão confirmação antes de excluí-los. Se um diretório estiver protegido contra gravação, também não será facilmente removido.<br>
+
+Agora, se você não se importa com nada disso, você pode remover absolutamente um monte de arquivos.</p>
+
+<h3>rm -f file1</h3>
+
+<p>A opção <b>-f</b> ou force diz ao <b>rm</b> para remover todos os arquivos, estejam eles protegidos contra gravação ou não, sem avisar o usuário (contanto que você tenha as permissões apropriadas).</p>
+
+
+<h3>rm -i arquivo</h3>
+<p>Adicionar o sinalizador <b>-i</b> como muitos dos outros comandos, lhe dará um aviso se você deseja realmente remover os arquivos ou diretórios.</p>
+
+<h3>rm -r pasta</h3>
+
+<p>
+aviso:
+pasta e diretorio e a mesta coisa..
+Você não pode simplesmente da um rm em um diretório por padrão, você precisará adicionar o sinalizador -r (recursivo) para remover todos os arquivos e quaisquer subdiretórios que possa ter.
+
+Você pode remover um diretório com o comando rmdir.</p>
+
+<h3>rmdir diretorio</h3>
+
+<h1>find</h1>
+
+<p>Com todos esses arquivos que temos no sistema, pode ser um pouco agitado tentar encontrar um arquivo específico. Bem, há um comando que podemos usar para isso, encontre!</p>
+
+<h3>find /home -name puppies.jpg</h3>
+
+<p>Com find você terá que especificar o diretório que irá pesquisar, o que você está procurando, neste caso estamos tentando encontrar um arquivo com o nome de puppies.jpg.
+
+Você pode especificar o tipo de arquivo que está tentando encontrar.</p>
+
+<h3>find / home -type d -name minha_pasta</h3>
+
+<p>Você pode ver que eu defini o tipo de arquivo que estou tentando encontrar como (d) para diretório e ainda estou pesquisando pelo nome de
+<b> minha_pasta</b>.
+
+Uma coisa legal a se notar é que o find não para no diretório que você está procurando, ele vai olhar dentro de qualquer subdiretório que o diretório possa ter.</p>
+
+<h1>help</h1>
+<p>O Linux tem algumas ótimas ferramentas integradas para ajudá-lo a usar um comando ou verificar quais sinalizadores estão disponíveis para um comando. Uma ferramenta, help, é um comando bash embutido que fornece ajuda para outros comandos bash (echo, logout, pwd, etc).</p>
+ 
+<h3>help echo</h3>
+
+<p>Isso lhe dará uma descrição e as opções que você pode usar quando quiser executar o echo. Para outros programas executáveis, é convenção ter uma opção chamada <b>--help</b> ou algo semelhante.</p>
+
+<h3>echo --help</h3>
+
+<p>Nem todos os desenvolvedores que distribuem executáveis   estão em conformidade com esse padrão, mas provavelmente é sua melhor chance de encontrar ajuda para um programa.</p>
+
+<h1>man</h1>
+
+<p>Puxa, gostaria que alguns desses programas tivessem um manual para que possamos ver mais algumas informações sobre eles. Bem, felizmente eles fazem! Páginas man apropriadamente nomeadas, você pode ver os manuais para um comando com o comando man.</p>
+
+
+<h3>man ls</h3>
+
+<p>As páginas de manual são manuais integrados por padrão na maioria dos sistemas operacionais Linux. Eles fornecem documentação sobre comandos e outros aspectos do sistema.
+
+Experimente em alguns comandos para obter mais informações sobre eles.</p>
+
+
+<h1> alias</h1>
+
+<p>Às vezes, digitar comandos pode se tornar realmente repetitivo, ou se você precisar digitar um comando longo muitas vezes, é melhor ter um apelido que você possa usar para isso. Para criar um <b>alias</b> para um comando, você simplesmente especifica um nome de alias e define-o para o comando.</p>
+
+<h3>alias foobar = 'ls -la'</h3>
+
+<p>Agora, em vez de digitar ls -la, você pode digitar foobar e ele executará esse comando, uma coisa bem legal. Lembre-se de que este comando não salvará seu alias após a reinicialização, portanto, você precisará adicionar um alias permanente em:</p>
+
+<h3>~ / .bashrc</h3>
+
+<p>ou arquivos semelhantes se quiser que persistam após a reinicialização.
+
+Você pode remover aliases com o comando unalias:
+</p>
+
+<h3>unalias foobar</h3>
+
+
+<p>digita o Nome python toda vez PRA cha um script.py e chato defina 
+<b>alias py=python3</b>
+agora digite so <b>py</b> PRA chama seus scripts</p>
+</p>
+
+<h1>exit</h1>
+
+<p>Bem, você com certeza fez um bom trabalho ao ler o básico. Nós apenas arranhamos a superfície, agora que você aprendeu a engatinhar, no próximo conjunto de cursos, vou ensinar a andar.
+
+Por enquanto, você pode dar um tapinha nas costas e fazer uma pausa. Para sair do shell, você pode usar o comando exit</p>
+
+<h3>exit</h3>
+
+<p>Ou o comando <b>logout</b>:</p>
+
+<h3>logout</h3>
+
+<p>Ou se você estiver trabalhando em uma interface de usuário de terminal, você pode simplesmente fechar o terminal. Nos vemos no próximo curso!</p>
+
+
+<p>essa foi uma introdução totalmente em <b>portugues</b> para usuarios brasileiro aprender a merxer no terminal termux. deu trabalho traduzi <b>ser você quer continua ate se torna um usuario avaçado por favor faça uma doação para que EU posssa ontinua trabalhado e traduzindo da documentação oficial.
+se escreva no canal do termux brasil para saber de novidades
+
+<center>
+<a href="http://t.me/termux_brazil"><br>Visit o canal para novidades!</a>
+</center>
+
+
+</b> 
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
